@@ -13,6 +13,7 @@
 		77289E532603BC88008FCAEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77289E522603BC88008FCAEE /* Assets.xcassets */; };
 		77289E562603BC88008FCAEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77289E552603BC88008FCAEE /* Preview Assets.xcassets */; };
 		77289E592603BC88008FCAEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77289E572603BC88008FCAEE /* LaunchScreen.storyboard */; };
+		77289E652603BDDE008FCAEE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77289E642603BDDE008FCAEE /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		77289E552603BC88008FCAEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77289E582603BC88008FCAEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77289E5A2603BC88008FCAEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77289E642603BDDE008FCAEE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,12 @@
 				77289E4C2603BC84008FCAEE /* AppDelegate.swift */,
 				77289E4E2603BC84008FCAEE /* SceneDelegate.swift */,
 				77289E502603BC84008FCAEE /* ContentView.swift */,
-				77289E522603BC88008FCAEE /* Assets.xcassets */,
+				77289E612603BD34008FCAEE /* Models */,
+				77289E622603BD5D008FCAEE /* View Models */,
+				77289E632603BDA6008FCAEE /* Views */,
 				77289E572603BC88008FCAEE /* LaunchScreen.storyboard */,
 				77289E5A2603BC88008FCAEE /* Info.plist */,
+				77289E522603BC88008FCAEE /* Assets.xcassets */,
 				77289E542603BC88008FCAEE /* Preview Content */,
 			);
 			path = CookBook;
@@ -73,6 +78,28 @@
 				77289E552603BC88008FCAEE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		77289E612603BD34008FCAEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77289E642603BDDE008FCAEE /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77289E622603BD5D008FCAEE /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		77289E632603BDA6008FCAEE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +175,7 @@
 				77289E4D2603BC84008FCAEE /* AppDelegate.swift in Sources */,
 				77289E4F2603BC84008FCAEE /* SceneDelegate.swift in Sources */,
 				77289E512603BC84008FCAEE /* ContentView.swift in Sources */,
+				77289E652603BDDE008FCAEE /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
