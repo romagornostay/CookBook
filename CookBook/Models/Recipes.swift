@@ -9,5 +9,5 @@ import Foundation
 
 struct Recipes: Decodable {
     
-    var recipes: [Model]
+    var recipes: [Recipe]
 }

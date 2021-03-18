@@ -12,7 +12,7 @@ import Foundation
 class ViewModel: ObservableObject {
     // MARK: Properties
     
-    @Published var viewModel = [Model]()
+    @Published var viewModel = [Recipe]()
     
     var cancellable: AnyCancellable?
     

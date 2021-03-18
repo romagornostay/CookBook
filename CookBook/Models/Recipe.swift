@@ -1,13 +1,13 @@
 //
-//  Model.swift
+//  Recipe.swift
 //  CookBook
 //
-//  Created by SalemMacPro on 18.03.2021.
+//  Created by SalemMacPro on 19.03.2021.
 //
 
 import Foundation
 
-struct Model: Decodable {
+struct Recipe: Decodable {
     
     // MARK: Properties
     
@@ -36,5 +36,3 @@ struct Model: Decodable {
     
     
 }
-
-
