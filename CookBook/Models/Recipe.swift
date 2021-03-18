@@ -7,17 +7,21 @@
 
 import Foundation
 
-struct Recipe: Decodable {
+struct Recipe: Decodable, Identifiable {
     
     // MARK: Properties
     
-    var id: String?
-    var name: String?
-    var images: [String]?
-    var lastUpdated: Int?
+    var id: String
+    var name: String
+    var images: [String]
+    var lastUpdated: Int
     var description: String?
-    var instructions: String?
-    var difficulty: Int?
+    var instructions: String
+    var difficulty: Int
+    
+    var imageURL: URL? {
+        return URL(string: self.images[0])
+    }
     
     
     
