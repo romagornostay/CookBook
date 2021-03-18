@@ -7,16 +7,19 @@
 
 import Foundation
 
-struct Model: Decodable, Identifiable {
+struct Model: Decodable {
+    
     // MARK: Properties
     
-    var id: String
-    var name: String
-    var images: [String]
-    var lastUpdated: Int
-    var description: String
-    var instructions: String
-    var difficulty: Int
+    var id: String?
+    var name: String?
+    var images: [String]?
+    var lastUpdated: Int?
+    var description: String?
+    var instructions: String?
+    var difficulty: Int?
+    
+    
     
     // MARK: CodingKeys
     
@@ -31,4 +34,7 @@ struct Model: Decodable, Identifiable {
     }
     
     
+    
 }
+
+
