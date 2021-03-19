@@ -12,22 +12,24 @@ import Foundation
 class RecipeViewModel: ObservableObject {
     // MARK: Properties
     
-    @Published var viewModel = [Recipe]()
+    @Published var viewModel: Recipe?
     
     var cancellable: AnyCancellable?
     
+    let meal: Meal
+    
     // MARK: Initializers
     
-    init() {
-        
-        self.fetchMeals()
+    init(meal: Meal) {
+        self.meal = meal
+        self.fetchRecipe()
     }
 }
 
 // MARK: - Fetching
 
 extension RecipeViewModel {
-    private func fetchMeals() {
+    private func fetchRecipe() {
         
         guard let url = URL(string: "https://test.kode-t.ru/recipes.json") else { return }
         
@@ -44,9 +46,6 @@ extension RecipeViewModel {
     }
     
     private func receiveValue(_ value: Recipes) {
-        self.viewModel = value.array
-        print(viewModel)
-        
+        self.viewModel = value.array.first
     }
-    
 }

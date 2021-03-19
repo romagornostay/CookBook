@@ -109,8 +109,8 @@
 		77289E622603BD5D008FCAEE /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				77289E672603C630008FCAEE /* RecipeViewModel.swift */,
 				774BD01A26045B2600E1EB70 /* MealsViewModel.swift */,
+				77289E672603C630008FCAEE /* RecipeViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
