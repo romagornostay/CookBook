@@ -16,12 +16,12 @@ class RecipeViewModel: ObservableObject {
     
     var cancellable: AnyCancellable?
     
-    let meal: Meal
+    //let meal: Meal
     
     // MARK: Initializers
     
-    init(meal: Meal) {
-        self.meal = meal
+    init() {
+       
         self.fetchRecipe()
     }
 }
