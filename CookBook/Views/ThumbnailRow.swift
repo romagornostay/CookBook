@@ -16,8 +16,11 @@ struct ThumbnailRow: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            
+            KFImage(self.imageURL)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 80, height: 80)
+                .cornerRadius(15)
             VStack{
                 Text(self.title)
                     .bold()
