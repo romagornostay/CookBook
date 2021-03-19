@@ -12,7 +12,7 @@ import Foundation
 class RecipeViewModel: ObservableObject {
     // MARK: Properties
     
-    @Published var viewModel: Recipe?
+    @Published var viewModel: [Recipe] = []
     
     var cancellable: AnyCancellable?
     
@@ -46,6 +46,6 @@ extension RecipeViewModel {
     }
     
     private func receiveValue(_ value: Recipes) {
-        self.viewModel = value.array.first
+        self.viewModel = value.array
     }
 }

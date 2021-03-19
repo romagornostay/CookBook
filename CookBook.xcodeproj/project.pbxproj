@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		774BD0102604545E00E1EB70 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BD00F2604545E00E1EB70 /* Meal.swift */; };
 		774BD017260458A200E1EB70 /* MealsDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BD016260458A200E1EB70 /* MealsDecode.swift */; };
 		774BD01B26045B2600E1EB70 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BD01A26045B2600E1EB70 /* MealsViewModel.swift */; };
+		774BD0232604711300E1EB70 /* ThumbnailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BD0222604711300E1EB70 /* ThumbnailRow.swift */; };
+		774BD0282604744400E1EB70 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 774BD0272604744400E1EB70 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,7 @@
 		774BD00F2604545E00E1EB70 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		774BD016260458A200E1EB70 /* MealsDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsDecode.swift; sourceTree = "<group>"; };
 		774BD01A26045B2600E1EB70 /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
+		774BD0222604711300E1EB70 /* ThumbnailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774BD0282604744400E1EB70 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,7 @@
 		77289E632603BDA6008FCAEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				774BD0222604711300E1EB70 /* ThumbnailRow.swift */,
 				77289E6D2603CC90008FCAEE /* MealsView.swift */,
 			);
 			path = Views;
@@ -139,6 +144,9 @@
 			dependencies = (
 			);
 			name = CookBook;
+			packageProductDependencies = (
+				774BD0272604744400E1EB70 /* Kingfisher */,
+			);
 			productName = CookBook;
 			productReference = 77289E492603BC84008FCAEE /* CookBook.app */;
 			productType = "com.apple.product-type.application";
@@ -166,6 +174,9 @@
 				Base,
 			);
 			mainGroup = 77289E402603BC84008FCAEE;
+			packageReferences = (
+				774BD0262604744400E1EB70 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 77289E4A2603BC84008FCAEE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,6 +209,7 @@
 				77289E6B2603CA21008FCAEE /* Recipes.swift in Sources */,
 				77289E4D2603BC84008FCAEE /* AppDelegate.swift in Sources */,
 				774BD0102604545E00E1EB70 /* Meal.swift in Sources */,
+				774BD0232604711300E1EB70 /* ThumbnailRow.swift in Sources */,
 				77289E4F2603BC84008FCAEE /* SceneDelegate.swift in Sources */,
 				77289E512603BC84008FCAEE /* ContentView.swift in Sources */,
 				77289E6E2603CC90008FCAEE /* MealsView.swift in Sources */,
@@ -401,6 +413,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		774BD0262604744400E1EB70 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 7.0.0;
+				minimumVersion = 5.15.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		774BD0272604744400E1EB70 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 774BD0262604744400E1EB70 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77289E412603BC84008FCAEE /* Project object */;
 }

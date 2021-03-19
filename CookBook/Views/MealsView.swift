@@ -16,6 +16,6 @@ struct MealsView: View {
 
 struct Meals_Previews: PreviewProvider {
     static var previews: some View {
-        MealsView()
+        EmptyView()
     }
 }
