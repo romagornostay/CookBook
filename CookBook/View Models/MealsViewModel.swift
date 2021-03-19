@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  MealsViewModel.swift
 //  CookBook
 //
 //  Created by SalemMacPro on 19.03.2021.
@@ -9,10 +9,10 @@ import Combine
 import Foundation
 
 
-class ViewModel: ObservableObject {
+class MealsViewModel: ObservableObject {
     // MARK: Properties
     
-    @Published var viewModel = [Recipe]()
+    @Published var meals: [Meal] = []
     
     var cancellable: AnyCancellable?
     
@@ -26,7 +26,7 @@ class ViewModel: ObservableObject {
 
 // MARK: - Fetching
 
-extension ViewModel {
+extension MealsViewModel {
     private func fetchMeals() {
         
         guard let url = URL(string: "https://test.kode-t.ru/recipes.json") else { return }
@@ -34,7 +34,7 @@ extension ViewModel {
         self.cancellable = URLSession.shared
             .dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: Recipes.self, decoder: JSONDecoder())
+            .decode(type: MealsDecode.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: self.receiveCompletion(_:), receiveValue: self.receiveValue(_:))
     }
@@ -43,10 +43,8 @@ extension ViewModel {
         
     }
     
-    private func receiveValue(_ value: Recipes) {
-        self.viewModel = value.array
-        print(viewModel)
-        
+    private func receiveValue(_ value: MealsDecode) {
+        self.meals = value.array
+        print(meals)
     }
-    
 }
