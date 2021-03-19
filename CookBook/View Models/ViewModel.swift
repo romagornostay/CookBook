@@ -44,7 +44,7 @@ extension ViewModel {
     }
     
     private func receiveValue(_ value: Recipes) {
-        self.viewModel = value.recipes
+        self.viewModel = value.array
         print(viewModel)
         
     }

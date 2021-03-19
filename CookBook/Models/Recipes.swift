@@ -7,7 +7,13 @@
 
 import Foundation
 
-struct Recipes: Decodable {
+struct Recipes: JSONDecode {
     
-    var recipes: [Recipe]
+    // MARK: Coding Keys
+    private enum CodingKeys: String, CodingKey {
+        case array = "recipes"
+    }
+    
+    // MARK: Properties
+    var array: [Recipe]
 }
