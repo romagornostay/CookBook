@@ -2,7 +2,7 @@
 //  RecipeViewModel.swift
 //  CookBook
 //
-//  Created by SalemMacPro on 19.03.2021.
+//  Created by SalemMacPro on 20.03.2021.
 //
 
 import Combine
@@ -10,25 +10,20 @@ import Foundation
 
 
 class RecipeViewModel: ObservableObject {
-    // MARK: Properties
     
-    @Published var viewModel: [Recipe] = []
+    @Published var recipe: Recipe?
     
     var cancellable: AnyCancellable?
     
-    //let meal: Meal
-    
-    // MARK: Initializers
     
     init() {
-       
         self.fetchRecipe()
     }
 }
 
-// MARK: - Fetching
 
 extension RecipeViewModel {
+    
     private func fetchRecipe() {
         
         guard let url = URL(string: "https://test.kode-t.ru/recipes.json") else { return }
@@ -46,6 +41,8 @@ extension RecipeViewModel {
     }
     
     private func receiveValue(_ value: Recipes) {
-        self.viewModel = value.array
+        self.recipe = value.array.first
+        print("!!!!!COUNT===== \(value.array.count) !!!!!")
     }
+    
 }

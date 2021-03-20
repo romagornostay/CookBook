@@ -24,9 +24,9 @@ struct ThumbnailRow: View {
             VStack{
                 Text(self.title)
                     .bold()
-                Text(self.title)
+                Text(self.subtitle)
                     .italic()
-            }
+            }.lineLimit(2)
             
         }
     }

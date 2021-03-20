@@ -45,6 +45,7 @@ extension MealsViewModel {
     
     private func receiveValue(_ value: MealsDecode) {
         self.meals = value.array
-        print(meals)
+        print("!!!!!COUNT Meals===== \(self.meals.count) !!!!!")
+//        print(meals)
     }
 }

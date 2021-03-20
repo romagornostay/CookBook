@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct RecipeView: View {
+    
+    @ObservedObject var viewModel : RecipeViewModel
+    
+    init() {
+        self.viewModel = RecipeViewModel()
+    }
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,6 +22,6 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView()
+        EmptyView()
     }
 }

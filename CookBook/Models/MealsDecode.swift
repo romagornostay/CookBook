@@ -8,6 +8,7 @@
 import Foundation
 
 struct MealsDecode: JSONDecode {
+    
     // MARK: Coding Keys
     private enum CodingKeys: String, CodingKey {
         case array = "recipes"
