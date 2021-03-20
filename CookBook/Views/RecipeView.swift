@@ -6,17 +6,35 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RecipeView: View {
     
     @ObservedObject var viewModel : RecipeViewModel
     
-    init() {
-        self.viewModel = RecipeViewModel()
+    init(meal: Recipe) {
+        self.viewModel = RecipeViewModel(meal: meal)
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if self.viewModel.recipe == nil {
+            Text("Recipe Not Found")
+                .font(.largeTitle)
+                .foregroundColor(.secondary)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        else {
+            self.viewModel.recipe.map { recipe in
+                VStack{
+                    KFImage(recipe.imageURL)
+                    Text(recipe.name)
+                    Text(recipe.id)
+                    Text(recipe.instructions)
+                    
+                    
+                }
+            }
+        }
     }
 }
 

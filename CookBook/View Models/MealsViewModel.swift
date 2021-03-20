@@ -10,16 +10,13 @@ import Foundation
 
 
 class MealsViewModel: ObservableObject {
+    
     // MARK: Properties
-    
-    @Published var meals: [Meal] = []
-    
+    @Published var meals: [Recipe] = []
     var cancellable: AnyCancellable?
     
     // MARK: Initializers
-    
     init() {
-        
         self.fetchMeals()
     }
 }
@@ -45,7 +42,5 @@ extension MealsViewModel {
     
     private func receiveValue(_ value: MealsDecode) {
         self.meals = value.array
-        print("!!!!!COUNT Meals===== \(self.meals.count) !!!!!")
-//        print(meals)
     }
 }

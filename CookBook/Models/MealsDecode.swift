@@ -15,5 +15,5 @@ struct MealsDecode: JSONDecode {
     }
     
     // MARK: Properties
-    var array: [Meal]
+    var array: [Recipe]
 }
