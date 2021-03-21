@@ -12,6 +12,7 @@ struct MealsView: View {
     var body: some View {
         List(self.viewModel.meals, rowContent: MealRow.init)
             .navigationBarTitle("Recipes")
+            
     }
 }
 

@@ -27,7 +27,6 @@ struct ThumbnailRow: View {
                 Text(self.subtitle)
                     .italic()
             }.lineLimit(2)
-            
         }
     }
 }

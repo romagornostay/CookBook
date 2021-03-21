@@ -25,14 +25,13 @@ struct RecipeView: View {
         }
         else {
             self.viewModel.recipe.map { recipe in
-                VStack{
-                    KFImage(recipe.imageURL)
-                    Text(recipe.name)
-                    Text(recipe.id)
-                    Text(recipe.instructions)
-                    
-                    
-                }
+                ScrollView {
+                    VStack {
+                        RecipeImages(recipe: recipe)
+                        Text(recipe.name)
+                        Text(recipe.instructions)
+                    }
+                }.navigationBarTitle(recipe.name)
             }
         }
     }

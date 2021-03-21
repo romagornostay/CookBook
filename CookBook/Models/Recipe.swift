@@ -10,7 +10,6 @@ import Foundation
 struct Recipe: Decodable, Identifiable {
     
     // MARK: Properties
-    
     var id: String
     var name: String
     var images: [String]
@@ -19,14 +18,19 @@ struct Recipe: Decodable, Identifiable {
     var instructions: String
     var difficulty: Int
     
+    var arrayOfImage: [URL?] {
+        var array:[URL?] = []
+        for url in images {
+            array.append(URL(string: url))
+        }
+        return array
+    }
+    
     var imageURL: URL? {
         return URL(string: self.images[0])
     }
     
-    
-    
     // MARK: CodingKeys
-    
     private enum CodingKeys: String, CodingKey {
         case id = "uuid"
         case name

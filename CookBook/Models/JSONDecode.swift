@@ -9,5 +9,5 @@ import Foundation
 
 protocol JSONDecode: Decodable {
     associatedtype Items
-    var array: Items {get}
+    var array: Items { get }
 }
