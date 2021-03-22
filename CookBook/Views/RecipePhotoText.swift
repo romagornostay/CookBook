@@ -14,19 +14,21 @@ struct RecipePhotoText: View {
     var body: some View {
         HStack {
             Text(recipe.name)
-                
                 .padding(2)
-                .background(Color.black.opacity(0.4)).clipShape(RoundedRectangle(cornerRadius: 5))
-
+            
             Spacer()
-//            Text("\(Image(systemName:"flag"))\(recipe.difficulty)\(Image(systemName:"flag"))")
+            
+            VStack(alignment:.trailing){
+                Text("difficulty")
                 DifficultyRating(recipe: recipe)
-                .background(Color.black.opacity(0.4)).clipShape(RoundedRectangle(cornerRadius: 5))
+            }
+            .padding(2)
         }
         .foregroundColor(Color.white)
+        .background(Color.black.opacity(0.4)).clipShape(RoundedRectangle(cornerRadius: 6))
         .font(.footnote)
-        .padding()
-
+        .padding(.bottom, 40)
+        
         
     }
 }

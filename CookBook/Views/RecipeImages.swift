@@ -12,24 +12,26 @@ struct RecipeImages: View {
     
     var recipe: Recipe
     
-    private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 3, on: .main, in: .common)
     
     @State private var currentIndex = 0
     
     var body: some View {
         
         TabView(selection: $currentIndex) {
-            ForEach(0..<recipe.images.count) { num in
-                KFImage(recipe.arrayOfImages[num])
+            ForEach(recipe.images, id:\.self) { url in
+                KFImage(URL(string:url))
                     .resizable()
                     .scaledToFill()
-                    .tag(num)
+                    .tag(recipe.lastUpdated)
+                    
+
             }
         }
         .tabViewStyle(PageTabViewStyle())
         .overlay(RecipePhotoText(recipe: recipe), alignment: .bottom)
-        .clipShape(RoundedRectangle(cornerRadius: 5))
-        .padding()
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(8)
         .onReceive(timer) { _ in
             withAnimation { currentIndex = currentIndex < recipe.images.count ? currentIndex + 1 : 0 }
         }

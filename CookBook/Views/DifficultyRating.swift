@@ -14,9 +14,14 @@ struct DifficultyRating: View {
             ForEach(0..<recipe.difficulty) {_ in
                 Image(systemName: "leaf.fill").foregroundColor(.green)
             }
+            ForEach(0..<5 - recipe.difficulty) {_ in
+                Image(systemName: "leaf")
+            }
         }
     }
 }
+
+
 
 struct DifficultyRating_Previews: PreviewProvider {
     static var previews: some View {
