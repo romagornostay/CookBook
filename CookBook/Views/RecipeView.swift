@@ -28,10 +28,11 @@ struct RecipeView: View {
                 ScrollView {
                     VStack {
                         RecipeImages(recipe: recipe)
-                        Text(recipe.name)
+                        
                         Text(recipe.instructions)
                     }
-                }.navigationBarTitle(recipe.name)
+                }.navigationBarTitle(recipe.name, displayMode: .inline)
+
             }
         }
     }

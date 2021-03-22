@@ -18,7 +18,7 @@ struct Recipe: Decodable, Identifiable {
     var instructions: String
     var difficulty: Int
     
-    var arrayOfImage: [URL?] {
+    var arrayOfImages: [URL?] {
         var array:[URL?] = []
         for url in images {
             array.append(URL(string: url))
@@ -40,7 +40,4 @@ struct Recipe: Decodable, Identifiable {
         case instructions
         case difficulty
     }
-    
-    
-    
 }
