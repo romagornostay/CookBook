@@ -12,10 +12,10 @@ struct DifficultyRating: View {
     var body: some View {
         HStack {
             ForEach(0..<recipe.difficulty) {_ in
-                Image(systemName: "leaf.fill").foregroundColor(.green)
+                Image(systemName: "seal.fill").foregroundColor(.green)
             }
             ForEach(0..<5 - recipe.difficulty) {_ in
-                Image(systemName: "leaf")
+                Image(systemName: "seal")
             }
         }
     }

@@ -30,8 +30,15 @@ struct RecipeView: View {
                         RecipeImages(recipe: recipe)
                         
                         Text(recipe.instructions)
+                            .padding(10)
+                            .background(Color.white.opacity(0.1)).clipShape(RoundedRectangle(cornerRadius: 10))
+                        
+                        Text("last updated: \(recipe.lastUpdated)")
+                            .italic()
+                           
                     }
-                }.navigationBarTitle(recipe.name, displayMode: .inline)
+                }
+                .navigationBarTitle(recipe.name, displayMode: .inline)
 
             }
         }
