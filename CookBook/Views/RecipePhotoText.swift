@@ -25,7 +25,7 @@ struct RecipePhotoText: View {
             }.padding(5)
         }
         .foregroundColor(Color.white)
-        .background(Color(.black).opacity(0.2))
+        .background(Color(.black).opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .font(.footnote)
         .padding(.bottom, 40)

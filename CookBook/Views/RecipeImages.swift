@@ -31,7 +31,7 @@ struct RecipeImages: View {
         .tabViewStyle(PageTabViewStyle())
         .overlay(RecipePhotoText(recipe: recipe), alignment: .bottom)
         .clipShape(RoundedRectangle(cornerRadius: 20))
-        .padding(10)
+        .padding(.horizontal)
         .onReceive(timer) { _ in
             withAnimation { currentIndex = currentIndex < recipe.arrayOfImages.count ? currentIndex + 1 : 0 }
         }

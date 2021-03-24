@@ -28,14 +28,16 @@ struct RecipeView: View {
                 ScrollView {
                     VStack {
                         RecipeImages(recipe: recipe)
-                        
+                            .padding(5)
                         Text(recipe.instructions)
-                            .padding(10)
+                            .padding(.horizontal)
+                            .font(.system(size: 16, weight: .semibold))
+                            .multilineTextAlignment(.center)
+                        
                         Text("last updated: \(recipe.lastUpdated)")
                             .italic()
                     }
-                }
-                .navigationBarTitle(recipe.name, displayMode: .inline)
+                }.navigationBarTitle(recipe.name, displayMode: .inline)
             }
         }
     }
