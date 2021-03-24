@@ -12,7 +12,9 @@ import Foundation
 class MealsViewModel: ObservableObject {
     
     // MARK: Properties
+    
     @Published var meals: [Recipe] = []
+    
     var cancellable: AnyCancellable?
     
     // MARK: Initializers

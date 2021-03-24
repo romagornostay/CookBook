@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook Something" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pih-Mt-6t1">
+                                <rect key="frame" x="85" y="564" width="244" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.book.closed" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6b5-bP-aTA">
                                 <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
@@ -24,20 +30,18 @@
                                     <constraint firstAttribute="height" constant="200" id="xN3-gR-fC5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook Something" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pih-Mt-6t1">
-                                <rect key="frame" x="85" y="564" width="244" height="41"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <color key="textColor" systemColor="systemOrangeColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.19565677642822266" green="0.07557176798582077" blue="0.047961659729480743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6b5-bP-aTA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="8RM-PB-uSn"/>
                             <constraint firstItem="pih-Mt-6t1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OIA-H9-6UM"/>
                             <constraint firstItem="pih-Mt-6t1" firstAttribute="top" secondItem="6b5-bP-aTA" secondAttribute="bottom" constant="16" id="PCl-SG-tlI"/>
                             <constraint firstItem="6b5-bP-aTA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qiZ-6F-I85"/>
                             <constraint firstItem="6b5-bP-aTA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tpj-8z-uJk"/>
+                            <constraint firstItem="6b5-bP-aTA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uxz-YE-N4u"/>
+                            <constraint firstItem="6b5-bP-aTA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vtK-rt-umO"/>
+                            <constraint firstItem="6b5-bP-aTA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wh1-9y-lCB"/>
                         </constraints>
                     </view>
                 </viewController>

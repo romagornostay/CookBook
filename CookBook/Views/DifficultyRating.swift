@@ -16,6 +16,7 @@ struct DifficultyRating: View {
             }
             ForEach(0..<5 - recipe.difficulty) {_ in
                 Image(systemName: "seal")
+                    .foregroundColor(.some(.white)).opacity(0.5)
             }
         }
     }

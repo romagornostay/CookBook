@@ -16,7 +16,7 @@ struct RecipeView: View {
         self.viewModel = RecipeViewModel(meal: meal)
     }
     
-    var body: some View {
+    @ViewBuilder var body: some View {
         if self.viewModel.recipe == nil {
             Text("Recipe Not Found")
                 .font(.largeTitle)
@@ -31,15 +31,11 @@ struct RecipeView: View {
                         
                         Text(recipe.instructions)
                             .padding(10)
-                            .background(Color.white.opacity(0.1)).clipShape(RoundedRectangle(cornerRadius: 10))
-                        
                         Text("last updated: \(recipe.lastUpdated)")
                             .italic()
-                           
                     }
                 }
                 .navigationBarTitle(recipe.name, displayMode: .inline)
-
             }
         }
     }

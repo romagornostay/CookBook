@@ -10,22 +10,25 @@ import Kingfisher
 
 struct ThumbnailRow: View {
     
-    var images: [String]
+    var imageURL: URL?
     var title: String
     var subtitle: String
     
     var body: some View {
         HStack(spacing: 20) {
-            KFImage(URL(string: images.first!))
+            KFImage(self.imageURL)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
                 .frame(width: 80, height: 80)
                 .cornerRadius(15)
-            VStack{
+
+            VStack(alignment: .leading, spacing: 6){
                 Text(self.title)
-                    .bold()
+                .fontWeight(Font.Weight.black)
                 Text(self.subtitle)
+                    .foregroundColor(.secondary)
+                    .fontWeight(Font.Weight.light)
                     .italic()
+                
             }.lineLimit(2)
         }
     }

@@ -14,18 +14,19 @@ struct RecipePhotoText: View {
     var body: some View {
         HStack {
             Text(recipe.name)
-                .padding(2)
+                .padding(5)
             
             Spacer()
             
             VStack(alignment:.trailing){
-                Text("difficulty")
+                Text("Difficulty").italic()
                 DifficultyRating(recipe: recipe)
-            }
-            .padding(2)
+                
+            }.padding(5)
         }
         .foregroundColor(Color.white)
-        .background(Color.black.opacity(0.4)).clipShape(RoundedRectangle(cornerRadius: 6))
+        .background(Color(.black).opacity(0.2))
+        .clipShape(RoundedRectangle(cornerRadius: 15))
         .font(.footnote)
         .padding(.bottom, 40)
         
