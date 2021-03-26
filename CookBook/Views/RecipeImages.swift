@@ -19,7 +19,8 @@ struct RecipeImages: View {
     var body: some View {
         
         TabView(selection: $currentIndex) {
-            ForEach(0..<recipe.images.count, id:\.self) { num in
+            ForEach(recipe.images.indices, id:\.self) { num in
+                //let number = recipe.images.firstIndex(of: num)
                 KFImage(URL(string:recipe.images[num]))
                     .resizable()
                     .scaledToFill()
