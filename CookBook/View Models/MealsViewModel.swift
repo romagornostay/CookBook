@@ -28,7 +28,7 @@ class MealsViewModel: ObservableObject {
 extension MealsViewModel {
     private func fetchMeals() {
         
-        guard let url = URL(string: "https://test.kode-t.ru/recipes.json") else { return }
+        guard let url = URL(string: "https://test.kode-t.ru/recipes") else { return }
         
         self.cancellable = URLSession.shared
             .dataTaskPublisher(for: url)

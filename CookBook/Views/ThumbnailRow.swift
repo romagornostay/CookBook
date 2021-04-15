@@ -15,21 +15,30 @@ struct ThumbnailRow: View {
     var subtitle: String
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack {
+            
+            VStack(alignment: .leading, spacing: 6){
+                Text(title)
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(Color.black.opacity(0.75))
+                Text(subtitle)
+                    .foregroundColor(.secondary)
+                    .font(.system(size: 13, weight: .medium))
+            }.lineLimit(2)
+            
+            //Spacer()
+                
             KFImage(self.imageURL)
                 .resizable()
-                .frame(width: 80, height: 80)
-                .cornerRadius(15)
-
-            VStack(alignment: .leading, spacing: 6){
-                Text(self.title)
-                .fontWeight(Font.Weight.black)
-                Text(self.subtitle)
-                    .foregroundColor(.secondary)
-                    .fontWeight(Font.Weight.light)
-                    .italic()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 204, height: 112)
+                .cornerRadius(10)
+                .offset(x: 45)
+                .padding(.vertical)
+            
+            
                 
-            }.lineLimit(2)
+            
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Decodable, Identifiable {
+struct Recipe: Decodable, Identifiable, Hashable {
     
     // MARK: Properties
     var id: String
@@ -21,13 +21,13 @@ struct Recipe: Decodable, Identifiable {
     var imageURL: URL? {
         return URL(string: self.images[0])
     }
-    var arrayOfImages: [URL?] {
-        var array: [URL?] = []
-        for url in images {
-            array.append(URL(string: url))
-        }
-        return array
-    }
+//    var arrayOfImages: [URL?] {
+//        var array: [URL?] = []
+//        for url in images {
+//            array.append(URL(string: url))
+//        }
+//        return array
+//    }
     
     // MARK: CodingKeys
     private enum CodingKeys: String, CodingKey {

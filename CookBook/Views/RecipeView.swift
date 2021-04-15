@@ -11,6 +11,7 @@ import Kingfisher
 struct RecipeView: View {
     
     @ObservedObject var viewModel : RecipeViewModel
+    @Environment(\.presentationMode) var presentationMode
     
     init(meal: Recipe) {
         self.viewModel = RecipeViewModel(meal: meal)
@@ -26,18 +27,31 @@ struct RecipeView: View {
         else {
             self.viewModel.recipe.map { recipe in
                 ScrollView {
-                    VStack {
-                        RecipeImages(recipe: recipe)
+                    VStack(spacing: 10) {
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            HStack{
+                                Image(systemName: "chevron.left")
+                                    .font(.largeTitle)
+                                Text("Back")
+                                Spacer()
+                            }.foregroundColor(.black)
                             .padding(5)
+                
+                        }
+
+                        RecipeImages(recipe: recipe)
+                        
                         Text(recipe.instructions)
                             .padding(.horizontal)
                             .font(.system(size: 16, weight: .semibold))
                             .multilineTextAlignment(.center)
-                        
                         Text("last updated: \(recipe.lastUpdated)")
                             .italic()
                     }
-                }.navigationBarTitle(recipe.name, displayMode: .inline)
+                }//.navigationBarTitle(recipe.name, displayMode: .inline)
+                .navigationBarHidden(true)
             }
         }
     }

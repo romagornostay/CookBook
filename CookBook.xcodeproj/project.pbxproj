@@ -26,6 +26,7 @@
 		774BD03D2607380100E1EB70 /* RecipeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774BD03C2607380100E1EB70 /* RecipeImages.swift */; };
 		7758A73D26085CDA00BDCD6A /* RecipePhotoText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758A73C26085CDA00BDCD6A /* RecipePhotoText.swift */; };
 		7758A7402608820A00BDCD6A /* DifficultyRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758A73F2608820A00BDCD6A /* DifficultyRating.swift */; };
+		776FEBDD2625E0AF00F7AF0E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		774BD03C2607380100E1EB70 /* RecipeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImages.swift; sourceTree = "<group>"; };
 		7758A73C26085CDA00BDCD6A /* RecipePhotoText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePhotoText.swift; sourceTree = "<group>"; };
 		7758A73F2608820A00BDCD6A /* DifficultyRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyRating.swift; sourceTree = "<group>"; };
+		776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,13 +128,14 @@
 		77289E632603BDA6008FCAEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				774BD0222604711300E1EB70 /* ThumbnailRow.swift */,
 				77289E6D2603CC90008FCAEE /* MealsView.swift */,
 				774BD02A260475F500E1EB70 /* MealRow.swift */,
+				774BD0222604711300E1EB70 /* ThumbnailRow.swift */,
 				774BD02D2604773400E1EB70 /* RecipeView.swift */,
 				774BD03C2607380100E1EB70 /* RecipeImages.swift */,
 				7758A73C26085CDA00BDCD6A /* RecipePhotoText.swift */,
 				7758A73F2608820A00BDCD6A /* DifficultyRating.swift */,
+				776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				774BD00D260452B500E1EB70 /* JSONDecode.swift in Sources */,
 				77289E4D2603BC84008FCAEE /* AppDelegate.swift in Sources */,
 				774BD0232604711300E1EB70 /* ThumbnailRow.swift in Sources */,
+				776FEBDD2625E0AF00F7AF0E /* SearchBar.swift in Sources */,
 				7758A7402608820A00BDCD6A /* DifficultyRating.swift in Sources */,
 				77289E4F2603BC84008FCAEE /* SceneDelegate.swift in Sources */,
 				77289E512603BC84008FCAEE /* ContentView.swift in Sources */,
