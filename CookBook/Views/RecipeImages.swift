@@ -10,21 +10,24 @@ import Kingfisher
 
 struct RecipeImages: View {
     
+    @State var showImage: Bool = false
+    
     var recipe: Recipe
     
     var body: some View {
-        
-        TabView() {
-            ForEach(recipe.images.indices, id:\.self) { num in
-                KFImage(URL(string:recipe.images[num]))
-                    .resizable()
-                    .scaledToFill()
-                    .tag(num)
-            }
-        }
-        .tabViewStyle(PageTabViewStyle())
-        //.overlay(RecipePhotoText(recipe: recipe), alignment: .bottom)
-        
+        ZStack {
+            TabView() {
+                ForEach(recipe.images.indices, id:\.self) { num in
+                    KFImage(URL(string:recipe.images[num]))
+                        .resizable()
+                        .scaledToFill()
+                        .tag(num)
+                }
+                
+            }.tabViewStyle(PageTabViewStyle())
+            .onTapGesture { showImage.toggle() }
+            //.overlay(RecipePhotoText(recipe: recipe), alignment: .bottom)
+        }.sheet(isPresented: $showImage, content: {FullScreenImages(recipe: recipe)})
     }
 }
 

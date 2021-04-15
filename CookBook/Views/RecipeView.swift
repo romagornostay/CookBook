@@ -28,19 +28,17 @@ struct RecipeView: View {
             self.viewModel.recipe.map { recipe in
                 ScrollView {
                     VStack(spacing: 10) {
-                        Button {
-                            presentationMode.wrappedValue.dismiss()
-                        } label: {
-                            HStack{
-                                Image(systemName: "chevron.left")
-                                    .font(.largeTitle)
-                                Text("Back")
-                                Spacer()
-                            }.foregroundColor(.black)
-                            .padding(5)
-                
-                        }
-
+                        Button { presentationMode.wrappedValue.dismiss() }
+                            label: {
+                                HStack {
+                                    Image(systemName: "chevron.left").font(.largeTitle)
+                                    Text("Back")
+                                    Spacer()
+                                }
+                                .foregroundColor(.black)
+                                .padding(5)
+                            }
+                        
                         RecipeImages(recipe: recipe)
                         
                         Text(recipe.instructions)
