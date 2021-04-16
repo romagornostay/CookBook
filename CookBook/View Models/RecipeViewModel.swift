@@ -12,8 +12,8 @@ class RecipeViewModel: ObservableObject {
     
     @Published var recipe: Recipe?
     
-    init(meal: Recipe) {
-        self.recipe = meal
+    init(recipe: Recipe) {
+        self.recipe = recipe
     }
 }
 

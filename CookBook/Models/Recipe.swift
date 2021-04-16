@@ -21,13 +21,7 @@ struct Recipe: Decodable, Identifiable, Hashable {
     var imageURL: URL? {
         return URL(string: self.images[0])
     }
-//    var arrayOfImages: [URL?] {
-//        var array: [URL?] = []
-//        for url in images {
-//            array.append(URL(string: url))
-//        }
-//        return array
-//    }
+
     
     // MARK: CodingKeys
     private enum CodingKeys: String, CodingKey {
