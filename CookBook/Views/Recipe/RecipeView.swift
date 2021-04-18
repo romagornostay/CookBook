@@ -27,29 +27,30 @@ struct RecipeView: View {
         else {
             self.viewModel.recipe.map { recipe in
                 ScrollView {
-                    VStack(alignment: .leading ,spacing: 10) {
+                    VStack() {
                         
-                       // BackButton()
+                        BackButton()
                         
                         RecipeImages(recipe: recipe)
                         
-                        RecipeName(recipe: recipe)
+                        VStack(alignment: .leading ,spacing: 10) {
+                            
+                            RecipeName(recipe: recipe)
+                            
+                            Description(recipe: recipe)
+                            
+                            DifficultyRating(recipe: recipe)
+                            
+                            Instruction(recipe: recipe)
+                        }.padding(.horizontal, 24)
                         
-                        Description(recipe: recipe)
+                        Recommended()
                         
-                        DifficultyRating(recipe: recipe)
-                        
-                        Instruction(recipe: recipe)
-                        
-                        Recommended(recipe: recipe)
-                    
-                    }.background(Color.yellow)
-                    .padding(.horizontal, 24)
-                    .background(Color.green)
+                    }
                 }
-                .navigationBarTitle("", displayMode: .inline)
-            
-                //.navigationBarHidden(true)
+                //.navigationBarTitle("", displayMode: .inline)
+                
+                .navigationBarHidden(true)
                 
             }
         }

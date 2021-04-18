@@ -12,7 +12,6 @@ struct DifficultyRating: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Difficulty:")
-                //.foregroundColor(Color(.systemRed))
                 .font(.system(size: 18, weight: .regular))
                 .frame(width: 79, height: 21, alignment: .leading)
             

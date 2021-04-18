@@ -16,7 +16,6 @@ struct SortScreen: View {
         ZStack{
             Color.black.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
-            
             VStack{
                 Spacer()
                 VStack {
@@ -28,8 +27,8 @@ struct SortScreen: View {
                             .frame(maxWidth: .infinity)
                             .background(Color(.systemBackground).cornerRadius(10))
                     }
-                    
                     Divider()
+                    
                     Button(action:{
                         recipes.sort {$0.lastUpdated<$1.lastUpdated}
                         showScreenCover.toggle()

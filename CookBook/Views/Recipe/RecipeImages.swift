@@ -25,9 +25,7 @@ struct RecipeImages: View {
                 }
                 
             }
-            .aspectRatio(contentMode: .fill)
-            .padding(.vertical, 5)
-            .background(Color.red)
+            .aspectRatio(contentMode: .fit)
             .tabViewStyle(PageTabViewStyle())
             .onTapGesture { showImage.toggle() }
            

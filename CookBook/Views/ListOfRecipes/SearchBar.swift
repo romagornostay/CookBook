@@ -14,14 +14,13 @@ struct SearchBar: View {
         HStack {
             HStack {
                 TextField("Search", text: $searchText)
-                    .background(Color.gray)
-                    .padding(.leading, 24)
-                    .background(Color.yellow)
+                    .padding(.leading, 30)
+                    
             }
             .padding(.vertical,7)
-            .background(Color(.systemGray6).cornerRadius(10))
-            .background(Color.green)
             .foregroundColor(.black)
+            .background(Color(.systemGray6).cornerRadius(10))
+            
             .onTapGesture {isEditing = true}
             .overlay( HStack {
                 Image(systemName: "magnifyingglass")
@@ -32,7 +31,9 @@ struct SearchBar: View {
                 
             }
             .foregroundColor(.gray)
-            .padding(.horizontal, 24)
+            
+            .padding(8)
+            
             
             )
             .transition(.move(edge: .trailing))

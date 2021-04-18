@@ -10,31 +10,33 @@ import Kingfisher
 
 struct ThumbnailRow: View {
     
-    var imageURL: URL?
-    var title: String
-    var subtitle: String
+    var recipe: Recipe
     
     var body: some View {
         HStack {
             
-            VStack(alignment: .leading, spacing: 6){
-                Text(title)
+            VStack(alignment: .leading, spacing: 10){
+                Text(recipe.name)
                     .font(.system(size: 22, weight: .bold))
-                    .foregroundColor(Color.black.opacity(0.75))
-                Text(subtitle)
+                    .foregroundColor(Color(.black).opacity(0.75))
+                Text(recipe.description?.count ?? 0 > 1 ? recipe.description! : recipe.name)
                     .foregroundColor(.secondary)
                     .font(.system(size: 13, weight: .medium))
-            }.lineLimit(2)
+                Text("\(recipe.lastUpdated)")
+                    .foregroundColor(.black)
+                    .font(.system(size: 13, weight: .light))
+            }
+            .lineLimit(2)
             
             //Spacer()
                 
-            KFImage(imageURL)
+            KFImage(recipe.imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 204, height: 112)
                 .cornerRadius(10)
                 .offset(x: 45)
-                .padding(.vertical)
+                //.background(Color.blue)
             
             
                 

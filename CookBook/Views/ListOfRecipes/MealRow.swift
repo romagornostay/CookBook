@@ -11,7 +11,7 @@ struct MealRow: View {
     var recipe: Recipe
     var body: some View {
         NavigationLink(destination: RecipeView(recipe: recipe)) {
-            ThumbnailRow(imageURL: recipe.imageURL, title: recipe.name, subtitle: recipe.description?.count ?? 0 > 1 ? recipe.description! : recipe.name)
+            ThumbnailRow(recipe: recipe)
         }
     }
 }

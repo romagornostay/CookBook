@@ -33,7 +33,7 @@ struct MealsView: View {
                     SearchBar(searchText: $text, isEditing: $isEditing)
                 }
                 .padding(.horizontal,8)
-                .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8171520107)))
+                .background(Color(.systemBackground).opacity(0.5))
                 .foregroundColor(.black)
                 .transition(.move(edge: .bottom))
                 .animation(.spring())
@@ -45,10 +45,7 @@ struct MealsView: View {
                         MealRow(recipe: recipe)
                     }
                 }
-                .background(Color.yellow)
                 .padding(.leading, 16)
-                .background(Color.blue)
-                .transition(.move(edge: .bottom))
                 //.navigationTitle(Text("Recipes"))
                //.navigationBarHidden(isEditing)
             }
