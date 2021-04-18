@@ -45,4 +45,9 @@ extension MealsViewModel {
     private func receiveValue(_ value: MealsDecode) {
         self.meals = value.array
     }
+    
+    func updateArray() {
+        let sortedArray = meals.sorted(by: {$0.name < $1.name})
+        self.meals = sortedArray
+    }
 }

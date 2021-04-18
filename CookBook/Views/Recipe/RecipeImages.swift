@@ -24,9 +24,13 @@ struct RecipeImages: View {
                         .tag(num)
                 }
                 
-            }.tabViewStyle(PageTabViewStyle())
+            }
+            .aspectRatio(contentMode: .fill)
+            .padding(.vertical, 5)
+            .background(Color.red)
+            .tabViewStyle(PageTabViewStyle())
             .onTapGesture { showImage.toggle() }
-            //.overlay(RecipePhotoText(recipe: recipe), alignment: .bottom)
+           
         }.sheet(isPresented: $showImage, content: {FullScreenImages(recipe: recipe)})
     }
 }

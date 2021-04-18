@@ -14,26 +14,26 @@ struct SearchBar: View {
         HStack {
             HStack {
                 TextField("Search", text: $searchText)
-                    .padding(.leading, 32)
+                    .background(Color.gray)
+                    .padding(.leading, 24)
+                    .background(Color.yellow)
             }
-            .padding(10)
+            .padding(.vertical,7)
             .background(Color(.systemGray6).cornerRadius(10))
+            .background(Color.green)
             .foregroundColor(.black)
-            .padding(.horizontal, 8)
             .onTapGesture {isEditing = true}
             .overlay( HStack {
                 Image(systemName: "magnifyingglass")
                 Spacer()
-                if isEditing {
-                    Button(action: {searchText = ""})
-                    {
-                        Image(systemName: "multiply.circle.fill")
-                    }
+                if isEditing, searchText.count > 0 {
+                    Button(action: {searchText = ""}) {Image(systemName: "multiply.circle.fill")}
                 }
                 
             }
             .foregroundColor(.gray)
             .padding(.horizontal, 24)
+            
             )
             .transition(.move(edge: .trailing))
             .animation(.spring())
@@ -49,10 +49,11 @@ struct SearchBar: View {
                     .padding(.trailing)
                     .padding(.leading, 0)
                 })
-                .transition(.move(edge: .trailing))
-                .animation(.spring())
+                
             }
         }
+        .transition(.move(edge: .trailing))
+        .animation(.spring())
     }
 }
 

@@ -17,9 +17,9 @@ struct FullScreenImages: View {
     @State private var uiImage: UIImage?
     private var imageSaver = ImageSaver()
     
-    //self.imageSaver.saveImage(UIImage(data: data)!)
-
     
+
+    // MARK: Initializers
     init(recipe: Recipe) {
         self.recipe = recipe
         self.viewModel = ImagesViewModel(recipe: recipe)

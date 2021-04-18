@@ -12,7 +12,7 @@ struct RecipeView: View {
     
     @ObservedObject var viewModel : RecipeViewModel
     
-    
+    // MARK: Initializers
     init(recipe: Recipe) {
         self.viewModel = RecipeViewModel(recipe: recipe)
     }
@@ -27,21 +27,30 @@ struct RecipeView: View {
         else {
             self.viewModel.recipe.map { recipe in
                 ScrollView {
-                    VStack(spacing: 10) {
+                    VStack(alignment: .leading ,spacing: 10) {
                         
-                        BackButton()
+                       // BackButton()
                         
                         RecipeImages(recipe: recipe)
                         
-                        Text(recipe.instructions)
-                            .padding(.horizontal)
-                            .font(.system(size: 16, weight: .semibold))
-                            .multilineTextAlignment(.center)
-                        Text("last updated: \(recipe.lastUpdated)")
-                            .italic()
-                    }
-                }//.navigationBarTitle(recipe.name, displayMode: .inline)
-                .navigationBarHidden(true)
+                        RecipeName(recipe: recipe)
+                        
+                        Description(recipe: recipe)
+                        
+                        DifficultyRating(recipe: recipe)
+                        
+                        Instruction(recipe: recipe)
+                        
+                        Recommended(recipe: recipe)
+                    
+                    }.background(Color.yellow)
+                    .padding(.horizontal, 24)
+                    .background(Color.green)
+                }
+                .navigationBarTitle("", displayMode: .inline)
+            
+                //.navigationBarHidden(true)
+                
             }
         }
     }

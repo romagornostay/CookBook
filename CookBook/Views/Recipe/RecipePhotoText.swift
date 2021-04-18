@@ -20,7 +20,7 @@ struct RecipePhotoText: View {
             
             VStack(alignment:.trailing){
                 Text("Difficulty").italic()
-                DifficultyRating(recipe: recipe)
+                //DifficultyRating(recipe: recipe)
                 
             }.padding(5)
         }

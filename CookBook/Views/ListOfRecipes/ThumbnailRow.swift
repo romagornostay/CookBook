@@ -28,7 +28,7 @@ struct ThumbnailRow: View {
             
             //Spacer()
                 
-            KFImage(self.imageURL)
+            KFImage(imageURL)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 204, height: 112)

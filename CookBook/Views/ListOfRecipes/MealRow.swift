@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MealRow: View {
-    var meal: Recipe
+    var recipe: Recipe
     var body: some View {
-        NavigationLink(destination: RecipeView(recipe: meal)) {
-            ThumbnailRow(imageURL: meal.imageURL, title: meal.name, subtitle: meal.description ?? meal.name)
+        NavigationLink(destination: RecipeView(recipe: recipe)) {
+            ThumbnailRow(imageURL: recipe.imageURL, title: recipe.name, subtitle: recipe.description?.count ?? 0 > 1 ? recipe.description! : recipe.name)
         }
     }
 }

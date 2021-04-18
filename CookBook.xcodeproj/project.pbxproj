@@ -28,6 +28,10 @@
 		7758A7402608820A00BDCD6A /* DifficultyRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7758A73F2608820A00BDCD6A /* DifficultyRating.swift */; };
 		7763B7AB2629424F00233A55 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7AA2629424F00233A55 /* BackButton.swift */; };
 		7763B7AE262943C000233A55 /* RecipeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7AD262943C000233A55 /* RecipeName.swift */; };
+		7763B7B126294D3200233A55 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7B026294D3200233A55 /* Description.swift */; };
+		7763B7B52629588300233A55 /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7B42629588300233A55 /* Instruction.swift */; };
+		7763B7B826295B5200233A55 /* Recommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7B726295B5200233A55 /* Recommended.swift */; };
+		7763B7BE262AC8C900233A55 /* SortScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7763B7BD262AC8C900233A55 /* SortScreen.swift */; };
 		776FEBDD2625E0AF00F7AF0E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */; };
 		776FEBE02628486D00F7AF0E /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776FEBDF2628486C00F7AF0E /* ImageSaver.swift */; };
 		776FEBE32628510900F7AF0E /* FullScreenImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776FEBE22628510900F7AF0E /* FullScreenImages.swift */; };
@@ -57,6 +61,10 @@
 		7758A73F2608820A00BDCD6A /* DifficultyRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyRating.swift; sourceTree = "<group>"; };
 		7763B7AA2629424F00233A55 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		7763B7AD262943C000233A55 /* RecipeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeName.swift; sourceTree = "<group>"; };
+		7763B7B026294D3200233A55 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
+		7763B7B42629588300233A55 /* Instruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		7763B7B726295B5200233A55 /* Recommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommended.swift; sourceTree = "<group>"; };
+		7763B7BD262AC8C900233A55 /* SortScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortScreen.swift; sourceTree = "<group>"; };
 		776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		776FEBDF2628486C00F7AF0E /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		776FEBE22628510900F7AF0E /* FullScreenImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImages.swift; sourceTree = "<group>"; };
@@ -140,19 +148,39 @@
 		77289E632603BDA6008FCAEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7763B7BA26295C1E00233A55 /* ListOfRecipes */,
+				7763B7BB26295C6B00233A55 /* Recipe */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7763B7BA26295C1E00233A55 /* ListOfRecipes */ = {
+			isa = PBXGroup;
+			children = (
 				77289E6D2603CC90008FCAEE /* MealsView.swift */,
+				776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */,
+				7763B7BD262AC8C900233A55 /* SortScreen.swift */,
 				774BD02A260475F500E1EB70 /* MealRow.swift */,
 				774BD0222604711300E1EB70 /* ThumbnailRow.swift */,
+			);
+			path = ListOfRecipes;
+			sourceTree = "<group>";
+		};
+		7763B7BB26295C6B00233A55 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
 				774BD02D2604773400E1EB70 /* RecipeView.swift */,
 				7763B7AA2629424F00233A55 /* BackButton.swift */,
 				774BD03C2607380100E1EB70 /* RecipeImages.swift */,
 				776FEBE22628510900F7AF0E /* FullScreenImages.swift */,
 				7763B7AD262943C000233A55 /* RecipeName.swift */,
-				7758A73C26085CDA00BDCD6A /* RecipePhotoText.swift */,
+				7763B7B026294D3200233A55 /* Description.swift */,
 				7758A73F2608820A00BDCD6A /* DifficultyRating.swift */,
-				776FEBDC2625E0AF00F7AF0E /* SearchBar.swift */,
+				7763B7B42629588300233A55 /* Instruction.swift */,
+				7763B7B726295B5200233A55 /* Recommended.swift */,
+				7758A73C26085CDA00BDCD6A /* RecipePhotoText.swift */,
 			);
-			path = Views;
+			path = Recipe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,12 +265,14 @@
 				776FEBE02628486D00F7AF0E /* ImageSaver.swift in Sources */,
 				7763B7AB2629424F00233A55 /* BackButton.swift in Sources */,
 				776FEBE62628660500F7AF0E /* ImagesViewModel.swift in Sources */,
+				7763B7B126294D3200233A55 /* Description.swift in Sources */,
 				776FEBE32628510900F7AF0E /* FullScreenImages.swift in Sources */,
 				77289E4D2603BC84008FCAEE /* AppDelegate.swift in Sources */,
 				774BD0232604711300E1EB70 /* ThumbnailRow.swift in Sources */,
 				776FEBDD2625E0AF00F7AF0E /* SearchBar.swift in Sources */,
 				7758A7402608820A00BDCD6A /* DifficultyRating.swift in Sources */,
 				77289E4F2603BC84008FCAEE /* SceneDelegate.swift in Sources */,
+				7763B7BE262AC8C900233A55 /* SortScreen.swift in Sources */,
 				77289E512603BC84008FCAEE /* ContentView.swift in Sources */,
 				77289E6E2603CC90008FCAEE /* MealsView.swift in Sources */,
 				774BD02E2604773400E1EB70 /* RecipeView.swift in Sources */,
@@ -251,7 +281,9 @@
 				774BD017260458A200E1EB70 /* MealsDecode.swift in Sources */,
 				774BCFFD2603F69D00E1EB70 /* Recipe.swift in Sources */,
 				774BD03D2607380100E1EB70 /* RecipeImages.swift in Sources */,
+				7763B7B52629588300233A55 /* Instruction.swift in Sources */,
 				774BD01B26045B2600E1EB70 /* MealsViewModel.swift in Sources */,
+				7763B7B826295B5200233A55 /* Recommended.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
