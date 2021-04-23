@@ -6,26 +6,18 @@
 //
 
 import Foundation
-import SwiftUI
+import UIKit
 
 class ImagesViewModel: ObservableObject {
-    // MARK: Properties
-    var recipe: Recipe
-    var imagesURL: [String]
-    @Published var images: [UIImage] = []
-
     
-    // MARK: Initializers
+    @Published var images: [UIImage] = []
+    var imagesURL: [String]
     
     init(recipe: Recipe) {
-        self.recipe = recipe
-        self.imagesURL = recipe.images
+        self.imagesURL = recipe.images!
         self.fetchUIImage()
     }
 
-}
-
-extension ImagesViewModel {
     private func fetchUIImage() {
         for url in imagesURL {
             DispatchQueue.global(qos: .background).async {
@@ -43,17 +35,12 @@ extension ImagesViewModel {
                     
                 }.resume()
             }
-        
         }
-      
-           
     }
+    
     private func getUIImages(_ data: Data) {
         DispatchQueue.main.async {
             self.images.append(UIImage(data: data)!)
         }
-        
     }
-    
-    
 }

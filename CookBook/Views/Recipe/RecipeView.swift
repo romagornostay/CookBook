@@ -12,9 +12,9 @@ struct RecipeView: View {
     
     @ObservedObject var viewModel : RecipeViewModel
     
-    // MARK: Initializers
+    
     init(recipe: Recipe) {
-        self.viewModel = RecipeViewModel(recipe: recipe)
+        self.viewModel = RecipeViewModel(meal: recipe)
     }
     
     @ViewBuilder var body: some View {
@@ -29,29 +29,26 @@ struct RecipeView: View {
                 ScrollView {
                     VStack() {
                         
-                        BackButton()
+                        //BackButtonView()
                         
-                        RecipeImages(recipe: recipe)
+                        RecipeImagesView(recipe: recipe)
                         
                         VStack(alignment: .leading ,spacing: 10) {
                             
-                            RecipeName(recipe: recipe)
+                            RecipeNameView(recipe: recipe)
                             
-                            Description(recipe: recipe)
+                            DescriptionView(recipe: recipe)
                             
-                            DifficultyRating(recipe: recipe)
+                            DifficultyRatingView(recipe: recipe)
                             
-                            Instruction(recipe: recipe)
+                            InstructionView(recipe: recipe)
                         }.padding(.horizontal, 24)
                         
-                        Recommended()
+                        RecommendedView(recipe: recipe).padding(.leading,8)
                         
                     }
                 }
-                //.navigationBarTitle("", displayMode: .inline)
-                
-                .navigationBarHidden(true)
-                
+                .navigationBarTitle("", displayMode: .inline)
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  FullScreenImages.swift
+//  FullScreenImagesView.swift
 //  CookBook
 //
 //  Created by SalemMacPro on 15.4.21.
@@ -8,8 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct FullScreenImages: View {
-    
+struct FullScreenImagesView: View {
     
     var recipe: Recipe
     
@@ -17,9 +16,6 @@ struct FullScreenImages: View {
     @State private var uiImage: UIImage?
     private var imageSaver = ImageSaver()
     
-    
-
-    // MARK: Initializers
     init(recipe: Recipe) {
         self.recipe = recipe
         self.viewModel = ImagesViewModel(recipe: recipe)
@@ -27,13 +23,9 @@ struct FullScreenImages: View {
     
     var body: some View {
         
-        //Image(uiImage: <#T##UIImage#>)
-        
-        
-        
         TabView() {
-            ForEach(recipe.images.indices, id:\.self) { num in
-                KFImage(URL(string:recipe.images[num]))
+            ForEach(recipe.images!.indices, id:\.self) { num in
+                KFImage(URL(string:recipe.images![num]))
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .tag(num)

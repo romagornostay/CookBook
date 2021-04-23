@@ -7,30 +7,17 @@
 
 import Foundation
 
-struct Recipe: Decodable, Identifiable, Hashable {
+struct Recipe: Decodable, Hashable {
     
-    // MARK: Properties
-    var id: String
-    var name: String
-    var images: [String]
-    var lastUpdated: Int
+    lazy var id = UUID(uuidString: uuid)
+    let uuid: String
+    let name: String
+    var image: String?
+    var images: [String]?
+    var lastUpdated: Int?
     var description: String?
-    var instructions: String
-    var difficulty: Int
+    var instructions: String?
+    var difficulty: Int?
+    var similar: [Recipe]?
     
-    var imageURL: URL? {
-        return URL(string: self.images[0])
-    }
-
-    
-    // MARK: CodingKeys
-    private enum CodingKeys: String, CodingKey {
-        case id = "uuid"
-        case name
-        case images
-        case lastUpdated
-        case description
-        case instructions
-        case difficulty
-    }
 }

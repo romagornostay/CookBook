@@ -1,5 +1,5 @@
 //
-//  RecipeImages.swift
+//  RecipeImagesView.swift
 //  CookBook
 //
 //  Created by SalemMacPro on 21.03.2021.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct RecipeImages: View {
+struct RecipeImagesView: View {
     
     @State var showImage: Bool = false
     
@@ -17,8 +17,8 @@ struct RecipeImages: View {
     var body: some View {
         ZStack {
             TabView() {
-                ForEach(recipe.images.indices, id:\.self) { num in
-                    KFImage(URL(string:recipe.images[num]))
+                ForEach(recipe.images!.indices, id:\.self) { num in
+                    KFImage(URL(string:recipe.images![num]))
                         .resizable()
                         .scaledToFill()
                         .tag(num)
@@ -29,7 +29,7 @@ struct RecipeImages: View {
             .tabViewStyle(PageTabViewStyle())
             .onTapGesture { showImage.toggle() }
            
-        }.sheet(isPresented: $showImage, content: {FullScreenImages(recipe: recipe)})
+        }.sheet(isPresented: $showImage, content: {FullScreenImagesView(recipe: recipe)})
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MealRow: View {
+struct RecipeRow: View {
     var recipe: Recipe
     var body: some View {
         NavigationLink(destination: RecipeView(recipe: recipe)) {

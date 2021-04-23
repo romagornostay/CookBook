@@ -1,5 +1,5 @@
 //
-//  BackButton.swift
+//  BackButtonView.swift
 //  CookBook
 //
 //  Created by SalemMacPro on 16.4.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BackButton: View {
+struct BackButtonView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         Button { presentationMode.wrappedValue.dismiss() }

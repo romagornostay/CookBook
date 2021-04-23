@@ -18,29 +18,28 @@ struct ThumbnailRow: View {
             VStack(alignment: .leading, spacing: 10){
                 Text(recipe.name)
                     .font(.system(size: 22, weight: .bold))
-                    .foregroundColor(Color(.black).opacity(0.75))
+                    .foregroundColor(Color(UIColor.base1))
                 Text(recipe.description?.count ?? 0 > 1 ? recipe.description! : recipe.name)
-                    .foregroundColor(.secondary)
-                    .font(.system(size: 13, weight: .medium))
-                Text("\(recipe.lastUpdated)")
-                    .foregroundColor(.black)
-                    .font(.system(size: 13, weight: .light))
+                    .foregroundColor(Color(UIColor.base2))
+                    .font(.system(size: 13, weight: .regular))
+                Text(DateFormatter.ddMMyyyy.string(from: Date(timeIntervalSince1970: TimeInterval(recipe.lastUpdated!))))
+                    .foregroundColor(Color(UIColor.base1))
+                    .font(.system(size: 13, weight: .regular))
             }
             .lineLimit(2)
             
-            //Spacer()
-                
-            KFImage(recipe.imageURL)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 204, height: 112)
-                .cornerRadius(10)
-                .offset(x: 45)
-                //.background(Color.blue)
+            Spacer()
             
-            
-                
-            
+            if let stringURL = recipe.images?.first {
+                let url = URL(string: stringURL)
+                KFImage(url)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 204, height: 112)
+                    .cornerRadius(10)
+                    .offset(x: 45)
+                //.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 45))
+            }
         }
     }
 }
