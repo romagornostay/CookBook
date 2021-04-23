@@ -27,11 +27,11 @@ struct RecipesListView: View {
             .navigationBarHidden(isEditing)
             .toolbar {
                 Button("Sort by"){showActionSheet = true}
-                    .padding(8)
+                   
             }
             
         }
-        .accentColor(.black)
+        .accentColor(Color(.base1))
         .onAppear { viewModel.fetchMeals()}
         .actionSheet(isPresented: $showActionSheet) {
             ActionSheet(title: Text("Sorting"), buttons: [
@@ -56,6 +56,9 @@ struct RecipesListView: View {
 
 struct RecipesListView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        Group {
+            RecipesListView()
+            RecipesListView()
+        }
     }
 }

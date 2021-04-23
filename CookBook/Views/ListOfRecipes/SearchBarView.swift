@@ -12,15 +12,11 @@ struct SearchBarView: View {
     @Binding var isEditing: Bool
     var body: some View {
         HStack {
-            
             TextField("Search", text: $searchText)
-                .padding(.leading, 30)
-                
-                
-                .padding(.vertical,7)
-                .foregroundColor(.black)
+                .padding(7)
+                .padding(.horizontal, 25)
                 .background(Color(.systemGray6).cornerRadius(10))
-                
+                //.padding(.horizontal, 10)
                 .onTapGesture {isEditing = true}
                 .overlay(
                     HStack {
@@ -29,7 +25,6 @@ struct SearchBarView: View {
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
                         
-                        
                         if isEditing, searchText.count > 0 {
                             Button(action: {searchText = ""}) {
                                 Image(systemName: "multiply.circle.fill")
@@ -37,9 +32,7 @@ struct SearchBarView: View {
                                     .padding(.trailing, 8)
                             }
                         }
-                        
                     })
-                
             
             if isEditing {
                 Button(action: {
@@ -54,7 +47,6 @@ struct SearchBarView: View {
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
-                
             }
         }
     }
@@ -63,6 +55,6 @@ struct SearchBarView: View {
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyView()
+        SearchBarView(searchText: .constant(""), isEditing: .constant(true))
     }
 }
