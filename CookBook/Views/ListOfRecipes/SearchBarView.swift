@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct SearchBarView: View {
+    
     @Binding var searchText: String
     @Binding var isEditing: Bool
+    
     var body: some View {
         HStack {
             TextField("Search", text: $searchText)
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6).cornerRadius(10))
-                //.padding(.horizontal, 10)
                 .onTapGesture {isEditing = true}
                 .overlay(
                     HStack {
@@ -46,6 +47,7 @@ struct SearchBarView: View {
                 }
                 .padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
+                .transition(.move(edge: .top))
                 .animation(.default)
             }
         }

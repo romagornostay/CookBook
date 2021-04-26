@@ -14,10 +14,10 @@ struct InstructionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Instruction:")
-                .foregroundColor(Color(UIColor.base1))
+                .foregroundColor(Color("AdaptiveColor1"))
                 .font(.system(size: 18, weight: .regular))
             Text(recipe.instructions!.replacingOccurrences(of: "<br>", with: "\n"))
-                .foregroundColor(Color(UIColor.base2))
+                .foregroundColor(Color("AdaptiveColor2"))
                 .font(.system(size: 13, weight: .regular))
         }
     }

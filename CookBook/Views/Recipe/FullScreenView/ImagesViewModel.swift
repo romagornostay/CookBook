@@ -11,14 +11,13 @@ import UIKit
 class ImagesViewModel: ObservableObject {
     
     @Published var images: [UIImage] = []
-    var imagesURL: [String]
+    private var imagesURL: [String]
     
     init(recipe: Recipe) {
         self.imagesURL = recipe.images!
-        self.fetchUIImage()
     }
 
-    private func fetchUIImage() {
+    func fetchUIImage() {
         for url in imagesURL {
             DispatchQueue.global(qos: .background).async {
                 guard let url = URL(string: url) else { return }
@@ -40,7 +39,9 @@ class ImagesViewModel: ObservableObject {
     
     private func getUIImages(_ data: Data) {
         DispatchQueue.main.async {
-            self.images.append(UIImage(data: data)!)
+            if let uiImage = UIImage(data: data) {
+                self.images.append(uiImage)
+            }
         }
     }
 }

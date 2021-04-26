@@ -8,34 +8,40 @@
 import Combine
 import Foundation
 
-
 final class RecipeViewModel: ObservableObject {
     
-    @Published var recipe: Recipe?
-    var cancellable: AnyCancellable?
-    var meal: Recipe
+    @Published var recipe: Recipe!
+    private let apiManager = APIManager()
+    private var subscriber: AnyCancellable?
+    private var recipeSubject = PassthroughSubject<RecipeDetails, Error>()
+    private var recipeFromList: Recipe
     
-    init(meal: Recipe) {
-        self.meal = meal
-        self.fetchRecipe()
+    init(recipe: Recipe) {
+        self.recipeFromList = recipe
     }
     
     func fetchRecipe() {
         
-        guard let url = KodeAPI.url(.recipe(id: meal.uuid)) else { return }
+        guard let url = KodeAPI.url(.recipe(id: recipeFromList.uuid)) else { return }
+        apiManager.fetchItems(url: url) { [weak self] (result: Result<RecipeDetails, Error>) in
+            switch result {
+            case .success(let value):
+                self?.recipeSubject.send(value)
+            case .failure(let error):
+                self?.recipeSubject.send(completion: .failure(error))
+            }
+        }
+       subscriber = recipeSubject.sink { (resultComplection) in
+            switch resultComplection {
+            case .failure(let error) : print(error.localizedDescription)
+            default: break
+            }
         
-        self.cancellable = URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: RecipeDetails.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { print("Completion/Failure: \($0)")}, receiveValue: self.receiveValue(_:))
-    }
-    
-    private func receiveValue(_ value: RecipeDetails) {
-        self.recipe = value.recipe
-       
-        
+        } receiveValue: { (value) in
+            DispatchQueue.main.async {
+                self.recipe = value.recipe
+            }
+        }
     }
 }
 

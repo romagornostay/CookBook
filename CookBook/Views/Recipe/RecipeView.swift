@@ -6,53 +6,41 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct RecipeView: View {
     
-    @ObservedObject var viewModel : RecipeViewModel
-    
+    @ObservedObject private var viewModel : RecipeViewModel
     
     init(recipe: Recipe) {
-        self.viewModel = RecipeViewModel(meal: recipe)
+        self.viewModel = RecipeViewModel(recipe: recipe)
+        viewModel.fetchRecipe()
     }
     
-    @ViewBuilder var body: some View {
-        if self.viewModel.recipe == nil {
-            Text("Recipe Not Found")
-                .font(.largeTitle)
-                .foregroundColor(.secondary)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        else {
-            self.viewModel.recipe.map { recipe in
-                ScrollView {
-                    VStack() {
-                        
-                        //BackButtonView()
-                        
-                        RecipeImagesView(recipe: recipe)
-                        
-                        VStack(alignment: .leading ,spacing: 10) {
-                            
-                            RecipeNameView(recipe: recipe)
-                            
-                            DescriptionView(recipe: recipe)
-                            
-                            DifficultyRatingView(recipe: recipe)
-                            
-                            InstructionView(recipe: recipe)
-                        }.padding(.horizontal, 24)
-                        
-                        RecommendedView(recipe: recipe).padding(.leading,8)
-                        
-                    }
+    var body: some View {
+        ScrollView {
+            VStack {
+                
+                RecipeImagesView(recipe: viewModel.recipe)
+                
+                VStack(alignment: .leading ,spacing: 10) {
+                    
+                    RecipeNameView(recipe: viewModel.recipe)
+                    
+                    DescriptionView(recipe: viewModel.recipe)
+                    
+                    DifficultyRatingView(recipe: viewModel.recipe)
+                    
+                    InstructionView(recipe: viewModel.recipe)
                 }
-                .navigationBarTitle("", displayMode: .inline)
+                .padding(.horizontal, 24)
+                
+                RecommendedView(recipe: viewModel.recipe).padding(.leading,8)
             }
         }
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
+
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {

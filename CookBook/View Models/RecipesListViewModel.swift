@@ -8,16 +8,12 @@
 import Combine
 import Foundation
 
-
 final class RecipesListViewModel: ObservableObject {
     
     @Published var recipes: [Recipe] = []
-    
-    var cancellable: AnyCancellable?
-    
-//    init() {
-//        self.fetchMeals()
-//    }
+    private let apiManager = APIManager()
+    private var subscriber: AnyCancellable?
+    private var recipesSubject = PassthroughSubject<RecipesList, Error>()
     
     func filter(_ array: [Recipe], text: String) -> [Recipe]{
         var recipesList = array
@@ -25,29 +21,39 @@ final class RecipesListViewModel: ObservableObject {
         return recipesList
     }
     
-    func fetchMeals() {
-        
-        guard let url = KodeAPI.url(.recipes) else { return }
-        
-        self.cancellable = URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: RecipesList.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { print("Completion/Failure: \($0)")}, receiveValue: self.receiveValue(_:))
+    func sortByName() {
+        let sortedArray = recipes.sorted(by: {$0.name < $1.name})
+        self.recipes = sortedArray
     }
     
-    
-    private func receiveValue(_ value: RecipesList) {
-        self.recipes = value.recipes
+    func sortByLastUpdated() {
+        let sortedArray = recipes.sorted(by: {$0.lastUpdated!<$1.lastUpdated!})
+        self.recipes = sortedArray
+    }
+
+    func fetchRecipesList () {
+        guard let url = KodeAPI.url(.recipes) else { return }
+        apiManager.fetchItems(url: url) { [weak self] (result: Result<RecipesList, Error>) in
+            switch result {
+            case .success(let value):
+                self?.recipesSubject.send(value)
+            case .failure(let error):
+                self?.recipesSubject.send(completion: .failure(error))
+            }
+        }
+       subscriber = recipesSubject.sink { (resultComplection) in
+            switch resultComplection {
+            case .failure(let error) : print(error.localizedDescription)
+            default: break
+            }
         
+        } receiveValue: { (value) in
+            DispatchQueue.main.async {
+                self.recipes = value.recipes
+            }
+        }
     }
 }
 
 
     
-//    func updateArray() {
-//        let sortedArray = meals.sorted(by: {$0.name < $1.name})
-//        self.meals = sortedArray
-//    }
-
