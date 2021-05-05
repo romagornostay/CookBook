@@ -8,16 +8,21 @@
 import Foundation
 import SwiftUI
 
-class ImageSaver: NSObject {
+final class ImageSaver: NSObject, ObservableObject {
     
-    @State var isLoading = false
+    @Published var isSaving = false
     
     @objc func imageSaveListener(_ image: UIImage,didFinishSavingWithError error: Error?, contexInfo: UnsafeRawPointer ){
         if let error = error {
             print("error saving image: \(error.localizedDescription)")
         } else {
-            isLoading = false
-            print("image saved ")
+            self.isSaving = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.isSaving = false
+                print("image saved ")
+            }
+            
+           
         }
         
     }

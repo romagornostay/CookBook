@@ -11,6 +11,9 @@ import Foundation
 final class RecipesListViewModel: ObservableObject {
     
     @Published var recipes: [Recipe] = []
+    @Published var appError: AppError?
+    @Published var isLoading = false
+    @Published var isError = false
     private let apiManager = APIManager()
     private var subscriber: AnyCancellable?
     private var recipesSubject = PassthroughSubject<RecipesList, Error>()
@@ -31,7 +34,9 @@ final class RecipesListViewModel: ObservableObject {
         self.recipes = sortedArray
     }
 
-    func fetchRecipesList () {
+    func fetchRecipesList() {
+        self.isError = false
+        self.isLoading = true
         guard let url = KodeAPI.url(.recipes) else { return }
         apiManager.fetchItems(url: url) { [weak self] (result: Result<RecipesList, Error>) in
             switch result {
@@ -43,13 +48,19 @@ final class RecipesListViewModel: ObservableObject {
         }
        subscriber = recipesSubject.sink { (resultComplection) in
             switch resultComplection {
-            case .failure(let error) : print(error.localizedDescription)
+            case .failure(let error) :
+                self.isError = true
+                self.appError = AppError(errorString: error.localizedDescription)
+                print(error.localizedDescription)
             default: break
             }
         
         } receiveValue: { (value) in
             DispatchQueue.main.async {
+                print(value)
                 self.recipes = value.recipes
+                self.isError = false
+                self.isLoading = false
             }
         }
     }

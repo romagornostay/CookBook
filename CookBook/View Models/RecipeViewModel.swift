@@ -11,6 +11,7 @@ import Foundation
 final class RecipeViewModel: ObservableObject {
     
     @Published var recipe: Recipe!
+    @Published var noData = false
     private let apiManager = APIManager()
     private var subscriber: AnyCancellable?
     private var recipeSubject = PassthroughSubject<RecipeDetails, Error>()
