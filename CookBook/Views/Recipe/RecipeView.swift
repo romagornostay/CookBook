@@ -17,11 +17,8 @@ struct RecipeView: View {
     }
     
     @ViewBuilder var body: some View {
-        if self.viewModel.recipe == nil {
-            //NoInternetView(viewModel: <#Binding<RecipesListViewModel>#>)
-        }
-        else {
-            self.viewModel.recipe.map { recipe in
+        ZStack {
+            viewModel.recipe.map { recipe in
                 ScrollView {
                     VStack {
                         RecipeImagesView(recipe: viewModel.recipe!)
@@ -43,8 +40,12 @@ struct RecipeView: View {
                 }
                 .navigationBarTitle("", displayMode: .inline)
             }
+            if  viewModel.isError {
+                NoInternetView() {
+                    viewModel.fetchRecipe()
+                }
+            }
         }
-        
     }
 }
 

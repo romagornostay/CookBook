@@ -21,13 +21,10 @@ final class ImageSaver: NSObject, ObservableObject {
                 self.isSaving = false
                 print("image saved ")
             }
-            
-           
         }
-        
     }
+    
     func saveImage(_ image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(imageSaveListener(_:didFinishSavingWithError:contexInfo:)), nil)
     }
-    
 }

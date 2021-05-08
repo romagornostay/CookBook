@@ -20,13 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         
-        
-
             guard let windowScene = scene as? UIWindowScene else { return }
             self.window = UIWindow(windowScene: windowScene)
             self.window?.rootViewController = UIHostingController(rootView: RecipesListView())
             self.window?.makeKeyAndVisible()
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

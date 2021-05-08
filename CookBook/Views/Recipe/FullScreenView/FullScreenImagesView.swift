@@ -45,9 +45,7 @@ struct FullScreenImagesView: View {
             } else {
                 if viewModel.imagesURL != nil {
                     LoadingView()
-                } else {
-                   // NoInternetView()
-                }
+                } 
             }
             if self.imageSaver.isSaving {
                 LoadingView()

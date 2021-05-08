@@ -22,7 +22,6 @@ struct DifficultyRatingView: View {
                 }
                 ForEach(0..<5 - recipe.difficulty!) {_ in
                     Image("Shape")
-                        
                 }
             }
         }

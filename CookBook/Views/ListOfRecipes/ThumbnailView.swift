@@ -13,9 +13,8 @@ struct ThumbnailView: View {
     var recipe: Recipe
     
     var body: some View {
-        ZStack {
             HStack {
-                VStack(alignment: .leading, spacing: 4){
+                VStack(alignment: .leading, spacing: 8){
                     Text(recipe.name)
                         .font(.system(size: 22, weight: .bold))
                         .foregroundColor(Color("AdaptiveColor1"))
@@ -26,27 +25,20 @@ struct ThumbnailView: View {
                         .foregroundColor(Color("AdaptiveColor1"))
                         .font(.system(size: 13, weight: .regular))
                 }
-                .frame(width: 180.0, height: 112)
                 .lineLimit(2)
                 
                 Spacer()
-            }
-            
-            HStack {
-
-                Spacer()
-
+                
                 if let stringURL = recipe.images?.first {
                     let url = URL(string: stringURL)
                     KFImage(url)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 204, height: 112.0)
+                        .frame(width: 170, height: 115.0)
                         .cornerRadius(10)
-                        .offset(x: 50)
+                        .offset(x: 10)
                 }
             }
-        }
     }
 }
 

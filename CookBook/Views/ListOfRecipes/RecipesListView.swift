@@ -12,50 +12,38 @@ struct RecipesListView: View {
     @State private var showActionSheet = false
     @State private var text = ""
     @State private var isEditing = false
-    @State var showNoInternetView = false
     @ObservedObject private var viewModel = RecipesListViewModel()
     
     var body: some View {
         ZStack {
-        NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
-                SearchBarView(searchText: $text, isEditing: $isEditing).padding(.horizontal,8)
-                ForEach(viewModel.filter(viewModel.recipes, text: text), id: \.self) { recipe in
-                    RecipeElementView(recipe: recipe)
-                }.padding(.leading)
+            NavigationView {
+                ScrollView(.vertical, showsIndicators: false) {
+                    SearchBarView(searchText: $text, isEditing: $isEditing).padding(.horizontal,8)
+                    ForEach(viewModel.filter(text: text), id: \.self) { recipe in
+                        RecipeElementView(recipe: recipe)
+                    }
+                    .padding(.leading)
+                    .padding(.vertical,8)
+                }
+                .navigationBarTitle("Recipes")
+                .navigationBarHidden(isEditing)
+                .toolbar { Button("Sort by"){showActionSheet = true} }
             }
-            .navigationBarTitle(Text("Recipes"))
-            .navigationBarHidden(isEditing)
-            .toolbar { Button("Sort by"){showActionSheet = true} }
-        }
-        .animation(.default)
-        .transition(.move(edge: .top))
-        .accentColor(Color("AdaptiveColor1"))
-        .onAppear {
-            viewModel.fetchRecipesList()
-            self.showNoInternetView = viewModel.isError
-            print("!!!ERROR!!!---\(viewModel.isError)")
-        }
-       
-//        .alert(item: self.$viewModel.appError) { error in
-//                Alert(
-//                   title: Text("Network error"),
-//                    message: Text(error.errorString).font(.subheadline),
-//                   dismissButton: .default(Text("OK"))
-//                 )
-//        }
-        .actionSheet(isPresented: $showActionSheet) {
-            ActionSheet(title: Text("Sorting"), buttons: [
-                .cancel(),
-                .default(Text("Sort by Name")){ viewModel.sortByName()},
-                .default(Text("Sort by Date")){ viewModel.sortByLastUpdated()}
-            ]
-
-            )
-        }
+            .animation(.default)
+            .transition(.move(edge: .top))
+            .accentColor(Color("AdaptiveColor1"))
+            .onAppear { viewModel.fetchRecipesList() }
+            .actionSheet(isPresented: $showActionSheet) {
+                ActionSheet(title: Text("Sorting"), buttons: [
+                    .cancel(),
+                    .default(Text("Sort by Name")){ viewModel.sortByName()},
+                    .default(Text("Sort by Date")){ viewModel.sortByLastUpdated()}
+                ])
+            }
             if  viewModel.isError {
-            
-                NoInternetView(showNoInternetView: $viewModel.isError, viewModel: viewModel)
+                NoInternetView() {
+                    viewModel.fetchRecipesList()
+                }
             }
         }
     }
@@ -64,7 +52,7 @@ struct RecipesListView: View {
 
 struct RecipesListView_Previews: PreviewProvider {
     static var previews: some View {
-            RecipesListView()
+        RecipesListView()
         
     }
 }
